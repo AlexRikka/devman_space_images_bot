@@ -5,6 +5,8 @@ from image_downloader import download_image, get_file_extention
 
 
 def fetch_nasa_epic(path, api_key):
+    if not os.path.exists(path):
+        os.makedirs(path)
     payload = {'api_key': api_key}
     response = requests.get('https://api.nasa.gov/EPIC/api/natural/all',
                             params=payload)

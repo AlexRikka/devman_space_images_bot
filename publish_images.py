@@ -1,5 +1,6 @@
 import telegram
 import time
+import random
 import argparse
 import os
 from dotenv import load_dotenv
@@ -13,19 +14,22 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('post_delay',
                         help='Частота публикации в часах',
+                        type=float,
                         nargs='?',
                         default=4)
     post_delay = parser.parse_args().post_delay
+    image_paths = []
+    for address, dirs, files in os.walk(r'images/'):
+        image_paths.extend([os.path.join(address, name) for name in files])
 
     while True:
-        for address, dirs, files in os.walk(r'images/'):
-            for name in files:
-                image_path = os.path.join(address, name)
-                if not os.path.isfile(image_path):
-                    continue
-                if os.path.getsize(image_path)/1024**2 > 20:
-                    continue
-                bot.send_document(
-                    chat_id=chat_id, document=open(image_path,
-                                                   'rb'))
-                time.sleep(3600*post_delay)
+        for image_path in image_paths:
+            if not os.path.isfile(image_path):
+                continue
+            if os.path.getsize(image_path)/1024**2 > 20:
+                continue
+            bot.send_document(
+                chat_id=chat_id, document=open(image_path,
+                                               'rb'))
+            time.sleep(3600*post_delay)
+        random.shuffle(image_paths)
