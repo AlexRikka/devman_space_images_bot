@@ -19,16 +19,16 @@ python <название скрипта.py>
 
 ## Основные скрипты
 
-**fetch_spacex_images.py**
+**fetch_spacex_images.py**  
 Скачивает фото запуска ракет SpaceX с помощью [SpaceX API](https://github.com/r-spacex/SpaceX-API). При запуске скрипта принимает в качестве аргумента в командной строке id запуска. Если id не указать, то скачаются фото последнего запуска, если они есть.
 Например:
 ```
 python fetch_spacex_images.py 5eb87ce4ffd86e000604b337 
 ```
 
-**fetch_nasa_apod_images.py**
+**fetch_nasa_apod_images.py**  
 Скачивает фото на космическую тематику с сайта [NASA API APOD](https://api.nasa.gov/#apod). Чтобы воспользоваться NASA API необходимо получить API токен на этом же сайте.
 
-**fetch_nasa_epic_images.py**
+**fetch_nasa_epic_images.py**  
 Скачивает фото планеты Земля с сайта [NASA API EPIC](https://api.nasa.gov/#epic). Чтобы воспользоваться NASA API необходимо получить API токен на этом же сайте.
 
