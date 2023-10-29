@@ -22,14 +22,16 @@ if __name__ == '__main__':
     for address, dirs, files in os.walk(r'images/'):
         image_paths.extend([os.path.join(address, name) for name in files])
 
+    bytes = 1024**2
+    sec_per_hour = 3600
     while True:
         for image_path in image_paths:
             if not os.path.isfile(image_path):
                 continue
-            if os.path.getsize(image_path)/1024**2 > 20:
+            if os.path.getsize(image_path)/bytes > 20:
                 continue
             bot.send_document(
                 chat_id=chat_id, document=open(image_path,
                                                'rb'))
-            time.sleep(3600*post_delay)
+            time.sleep(sec_per_hour*post_delay)
         random.shuffle(image_paths)
