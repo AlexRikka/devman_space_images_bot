@@ -11,9 +11,10 @@ if __name__ == '__main__':
     bot = telegram.Bot(token=telegram_api_key)
     chat_id = os.environ['CHANNEL_NAME']
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='Publishes space images ' +
+                                     'in the telegram channel.')
     parser.add_argument('post_delay',
-                        help='Частота публикации в часах',
+                        help='Posting frequency in hours',
                         type=float,
                         nargs='?',
                         default=4)

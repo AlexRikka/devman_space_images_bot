@@ -16,9 +16,10 @@ def fetch_spacex_last_launch(launch_id, path):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='Download images of ' +
+                                     'SpaceX rockets from their website')
     parser.add_argument('launch_id',
-                        help='ID запуска',
+                        help='launch ID',
                         nargs='?',
                         default='latest')
     launch_id = parser.parse_args().launch_id
