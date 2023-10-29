@@ -15,8 +15,8 @@ def fetch_nasa_epic(path):
     response = requests.get(f'https://api.nasa.gov/EPIC/api/natural/'
                             f'date/{date}',
                             params=payload)
-    response_list = response.json()
-    for idx, response_idx in enumerate(response_list):
+    responses = response.json()
+    for idx, response_idx in enumerate(responses):
         image_identifier = response_idx['image']
         image_link = f'https://api.nasa.gov/EPIC/archive/natural/'\
             f'{date_fromatted}/png/{image_identifier}.png'

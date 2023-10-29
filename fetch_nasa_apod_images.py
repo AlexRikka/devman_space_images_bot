@@ -11,8 +11,8 @@ def fetch_nasa_apod(path, images_count):
     payload = {'api_key': api_key,  'count': images_count}
     response = requests.get(url=link, params=payload)
     response.raise_for_status()
-    response_list = response.json()
-    for idx, response_idx in enumerate(response_list):
+    responses = response.json()
+    for idx, response_idx in enumerate(responses):
         image_link = response_idx['url']
         print(image_link)
         image_extension = get_file_extention(image_link)
