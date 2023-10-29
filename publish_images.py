@@ -31,8 +31,7 @@ if __name__ == '__main__':
                 continue
             if os.path.getsize(image_path)/bytes > 20:
                 continue
-            bot.send_document(
-                chat_id=chat_id, document=open(image_path,
-                                               'rb'))
+            with open(image_path, 'rb') as f:
+                bot.send_document(chat_id=chat_id, document=f)
             time.sleep(sec_per_hour*post_delay)
         random.shuffle(image_paths)

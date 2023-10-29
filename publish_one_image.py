@@ -14,4 +14,5 @@ if __name__ == '__main__':
     parser.add_argument('image_path',
                         help='Path to image')
     image_path = parser.parse_args().image_path
-    bot.send_document(chat_id=chat_id, document=open(image_path, 'rb'))
+    with open(image_path, 'rb') as f:
+        bot.send_document(chat_id=chat_id, document=f)
