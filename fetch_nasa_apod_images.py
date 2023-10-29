@@ -15,7 +15,7 @@ def fetch_nasa_apod(path, images_count):
     for idx, response_idx in enumerate(responses):
         image_link = response_idx['url']
         image_extension = get_file_extention(image_link)
-        download_image(image_link, path+f'nasa_apod_{idx}{image_extension}')
+        download_image(image_link, f'{path}nasa_apod_{idx}{image_extension}')
 
 
 if __name__ == '__main__':
