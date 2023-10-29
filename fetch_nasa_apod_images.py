@@ -5,8 +5,7 @@ from image_downloader import download_image, get_file_extention
 
 
 def fetch_nasa_apod(path):
-    if not os.path.exists(path):
-        os.makedirs(path)
+    os.makedirs(path, exist_ok=True)
     api_key = os.environ['NASA_API_KEY']
     link = 'https://api.nasa.gov/planetary/apod'
     payload = {'api_key': api_key,  'count': 30}

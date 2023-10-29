@@ -5,8 +5,7 @@ from image_downloader import download_image, get_file_extention
 
 
 def fetch_spacex_last_launch(launch_id, path):
-    if not os.path.exists(path):
-        os.makedirs(path)
+    os.makedirs(path, exist_ok=True)
     link = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     response = requests.get(link)
     response.raise_for_status()
