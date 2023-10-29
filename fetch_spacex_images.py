@@ -22,6 +22,5 @@ if __name__ == '__main__':
                         nargs='?',
                         default='latest')
     launch_id = parser.parse_args().launch_id
-    print(launch_id)
     path = 'images/'
     fetch_spacex_last_launch(launch_id, path)
