@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 
 if __name__ == '__main__':
     load_dotenv()
-    telegram_api_key = os.environ['TELEGRAM_API_KEY']
+    telegram_api_key = os.environ['TG_BOT_HTTP_KEY']
     bot = telegram.Bot(token=telegram_api_key)
-    chat_id = os.environ['CHANNEL_NAME']
+    chat_id = os.environ['TG_CHANNEL_NAME']
 
     parser = argparse.ArgumentParser(description='Publishes space images ' +
                                      'in the telegram channel.')
