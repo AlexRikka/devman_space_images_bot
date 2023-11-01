@@ -23,13 +23,13 @@ if __name__ == '__main__':
     for address, dirs, files in os.walk(r'images/'):
         image_paths.extend([os.path.join(address, name) for name in files])
 
-    bytes = 1024**2
+    max_image_size = 20*1024*1024
     sec_per_hour = 3600
     while True:
         for image_path in image_paths:
             if not os.path.isfile(image_path):
                 continue
-            if os.path.getsize(image_path)/bytes > 20:
+            if os.path.getsize(image_path) > max_image_size:
                 continue
             with open(image_path, 'rb') as f:
                 bot.send_document(chat_id=chat_id, document=f)
